@@ -18,7 +18,6 @@ namespace WyzwaniaCore
 
             Console.WriteLine(NoCandy.HowManyMoreDays());
 
-
             DirectoryInfo[] cDirs = new DirectoryInfo(@"d:\").GetDirectories();
 
             // Write each directory name to a file.

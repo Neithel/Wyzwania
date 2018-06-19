@@ -12,7 +12,13 @@ namespace WyzwaniaCore
 
         private int quantityDays;
 
+        private TimeSpan duration = new TimeSpan(0);
+
         private int exp;
+
+        private DateTime startDay;
+
+        private DateTime endDay;
 
         public string Name
         {
@@ -62,13 +68,50 @@ namespace WyzwaniaCore
             }
         }
 
+        public DateTime StartDay
+        {
+            get
+            {
+                return this.startDay;
+            }
+            set
+            {
+                this.startDay = DateTime.Today;
+            }
+        }
 
-        public Challenge(string name, int quantityDays, int exp)
+        public TimeSpan Duration
+        {
+            get
+            {
+                return this.duration;
+            }
+            set
+            {
+                this.duration = value;
+            }
+        }
+
+        public DateTime EndDay
+        {
+            get
+            {
+                return this.endDay;
+            }
+            set
+            {
+                this.endDay = this.StartDay.Add(duration);
+            }
+        }
+
+        public Challenge(string name, int quantityDays, int exp = 10)
         {
             this.Name = name;
             this.QuantityDays = quantityDays;
             this.Exp = exp;
             this.CurrentDay = 0;
+            this.startDay = DateTime.Today;
+            //this.Duration = this.Duration(QuantityDays);
         }
 
         public int HowManyMoreDays()
