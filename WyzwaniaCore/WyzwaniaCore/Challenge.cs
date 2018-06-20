@@ -6,13 +6,14 @@ namespace WyzwaniaCore
 {
     class Challenge
     {
+
         private int currentDay=0;
 
         private string name;
 
         private int quantityDays;
 
-        private TimeSpan duration = new TimeSpan(0);
+        private TimeSpan totalDuration = new TimeSpan(0);
 
         private int exp;
 
@@ -52,7 +53,9 @@ namespace WyzwaniaCore
             }
             set
             {
-                this.exp = value;
+                if (value != 0)
+                    this.exp = value;
+                else this.exp = 10;
             }
         }
 
@@ -76,19 +79,19 @@ namespace WyzwaniaCore
             }
             set
             {
-                this.startDay = DateTime.Today;
+                this.startDay = value;
             }
         }
 
-        public TimeSpan Duration
+        public TimeSpan TotalDuration
         {
             get
             {
-                return this.duration;
+                return this.totalDuration;
             }
             set
             {
-                this.duration = value;
+                this.totalDuration = value;
             }
         }
 
@@ -100,7 +103,7 @@ namespace WyzwaniaCore
             }
             set
             {
-                this.endDay = this.StartDay.Add(duration);
+                this.endDay = value;
             }
         }
 
@@ -110,13 +113,14 @@ namespace WyzwaniaCore
             this.QuantityDays = quantityDays;
             this.Exp = exp;
             this.CurrentDay = 0;
-            this.startDay = DateTime.Today;
-            //this.Duration = this.Duration(QuantityDays);
+            this.StartDay = DateTime.Today;
+            this.TotalDuration = new TimeSpan(QuantityDays,0,0,0);
+            this.EndDay = this.StartDay.Add(TotalDuration);
         }
 
-        public int HowManyMoreDays()
+        public TimeSpan HowManyMoreDays(DateTime dt)
         {
-            return this.QuantityDays-currentDay;
+            return this.EndDay - dt;
         }
 
     }
