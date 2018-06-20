@@ -27,7 +27,7 @@ namespace WyzwaniaCore
             {
                 return this.name;
             }
-            set
+            private set
             {
                 this.name = value;
             }
@@ -39,7 +39,7 @@ namespace WyzwaniaCore
             {
                 return this.quantityDays;
             }
-            set
+            private set
             {
                 this.quantityDays = value;
             }
@@ -51,7 +51,7 @@ namespace WyzwaniaCore
             {
                 return this.exp;
             }
-            set
+            private set
             {
                 if (value != 0)
                     this.exp = value;
@@ -65,7 +65,7 @@ namespace WyzwaniaCore
             {
                 return this.currentDay;
             }
-            set
+            private set
             {
                 this.currentDay = value;
             }
@@ -77,7 +77,7 @@ namespace WyzwaniaCore
             {
                 return this.startDay;
             }
-            set
+            private set
             {
                 this.startDay = value;
             }
@@ -89,7 +89,7 @@ namespace WyzwaniaCore
             {
                 return this.totalDuration;
             }
-            set
+            private set
             {
                 this.totalDuration = value;
             }
@@ -101,7 +101,7 @@ namespace WyzwaniaCore
             {
                 return this.endDay;
             }
-            set
+            private set
             {
                 this.endDay = value;
             }

@@ -29,38 +29,21 @@ namespace WyzwaniaCore
 
             Console.WriteLine("Ile jeszcze dni do końca: "+ NoCandy.HowManyMoreDays(TD).ToString("%d"));
 
-            
-            DirectoryInfo[] cDirs = new DirectoryInfo(@"d:\").GetDirectories();
+            //-------------------------------------------------------------Cwiczenia z zapisem i odczytem---------------------------------------------------------------------------
 
-            // Write each directory name to a file.
-            using (StreamWriter sw = new StreamWriter("CDriveDirs.txt"))
+            try
             {
-                foreach (DirectoryInfo dir in cDirs)
+                using(StreamWriter sw = new StreamWriter(("d:/tekst.txt"),true))
                 {
-                    sw.WriteLine(dir.Name);
-                    
+                    sw.Write("Dzisiejsza data: " + TD.ToString(@"dd\.MM\.yyyy"));
+                    sw.WriteLine(";");
                 }
-                sw.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
-            string line = "";
-            using (StreamReader sr = new StreamReader("CDriveDirs.txt"))
-            {
-                while ((line = sr.ReadLine()) != null)
-                {
-                    Console.WriteLine(line);
-                }
-                sr.Close();
-            }
-            
-            /*using (var streamWriter = new StreamWriter("Challenges.txt"))
-            {
-                streamWriter.WriteLine(NoCandy.Name+";"+NoCandy.QuantityDays+";"+NoCandy.CurrentDay+";"+NoCandy.Exp);
-            }*/
-            /* using (var streamReader = new StreamReader("text.txt"))
-             {
-                 Console.WriteLine(streamReader.ReadToEnd());
-             }*/
 
             Console.ReadLine();
         }

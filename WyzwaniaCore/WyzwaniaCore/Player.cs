@@ -15,7 +15,7 @@ namespace WyzwaniaCore
             {
                 return this.name;
             }
-            set
+            private set
             {
                 if (this.name != null)
                     this.name = value;
@@ -30,7 +30,7 @@ namespace WyzwaniaCore
             {
                 return this.level;
             }
-            set
+            private set
             {
                     this.level = value;
             }
